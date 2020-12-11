@@ -68,15 +68,10 @@ public class StockInfo {
 	
 	
 	List<StockInfo>  getData() {
-		List<StockInfo> StockInfoList = new ArrayList<>();
+//		List<StockInfo> StockInfoList = new ArrayList<>();
 //		Iterator<StockInfo> iter;
 		FileInfo data = new FileInfo();
 		data.read();
-//		for (iter  = data.FileInfoList.iterator(); iter.hasNext();)
-//		{
-//			StockInfo temp = iter.next();
-//			StockInfoList.add(temp);
-//		}
 		return data.FileInfoList;		
 	}
 	
@@ -128,37 +123,45 @@ public class StockInfo {
 		str = in.readLine();
 		
 		ListIterator<StockInfo> iter;
-		for (iter  = st.getData().listIterator(); iter.hasNext();)
+		String day = "26/03/2020";
+		st.StockInfoList = st.getData();
+		int m = 0;
+		for (iter  = st.StockInfoList.listIterator(); iter.hasNext();)
 		{
-			StockInfo temp = iter.next();
 			
-			StockInfo tempYTD = iter.next();
-			if (tempYTD != null && temp.getCodeStock().equals("VNM") && temp.getDate().equals("25/03/2020"))
+			int iterIdx = iter.nextIndex();
+			if (iterIdx >= st.StockInfoList.size() - 1) 
+				break;
+			StockInfo temp = st.StockInfoList.get(iterIdx);
+//		
+//			
+			StockInfo tempYTD = st.StockInfoList.get(iterIdx + 1);
+			m += 1;
+			if (tempYTD != null && temp.getCodeStock().equals("VNM") && temp.getDate().equals(day))
 			{
 				if (tempYTD.getClosePrice() > temp.getClosePrice())
 				{
-					System.out.println("giam");
+					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is lower than" + " close price of " + temp.CodeStock + " on " + tempYTD.getDate());
 				}
 				if (tempYTD.getClosePrice() < temp.getClosePrice())
 				{
-					System.out.println("tang");
+					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is higher than" + " close price of " + temp.CodeStock + " on " + temp.getDate());
 				}
 				if (tempYTD.getClosePrice() == temp.getClosePrice())
 				{
-					System.out.println("dung");
+					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is equal to " + " close price of " + temp.CodeStock + " on " + temp.getDate());
 				}
-				
+			
 			}
-		
-			if (iter.hasPrevious())
-			{
-				iter.previous();
-			}
+//		
+			iter.next();
+			
 //			String result = MessageFormat.format(str, temp.Date, temp.CodeStock, temp.OpenPrice, temp.ClosePrice * 1000, temp.HighPrice, temp.LowPrice, Math.round((temp.Volume / 1000000.0) * 100.0) / 100.0
 //														);
 //			System.out.println(result);
 //			
 		}
+//		System.out.println(st.StockInfoList.size() + " " + m);
 		}
 		catch (UnsupportedEncodingException e)
 		{

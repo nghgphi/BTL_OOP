@@ -48,7 +48,7 @@ public class StockInfo {
 //		return StockInfoList;
 //	}
 	public StockInfo() {
-		
+//		this.StockInfoList = getData();
 	}
 	public String toString()
 	{
@@ -64,117 +64,128 @@ public class StockInfo {
 		this.LowPrice = LowPrice;
 		this.Volume = Volume;
 	}
-	List<StockInfo> StockInfoList = new ArrayList<>();
 	
+//	List<StockInfo> StockInfoList = new ArrayList<>();
 	
-	List<StockInfo>  getData() {
-//		List<StockInfo> StockInfoList = new ArrayList<>();
-//		Iterator<StockInfo> iter;
-		FileInfo data = new FileInfo();
-		data.read();
-		return data.FileInfoList;		
+//	List<StockInfo>  getData() {
+////		List<StockInfo> StockInfoList = new ArrayList<>();
+////		Iterator<StockInfo> iter;
+//		FileInfo data = new FileInfo();
+//		data.read();
+//		return data.FileInfoList;		
 	}
-	
-//	@Override
-//	void read() {
-//		// TODO Auto-generated method stub
-////	     File directoryPath = new File("C:\\Users\\Admin\\Desktop\\Java_OOP\\BTL_OOP\\data\\data");
-////	      //List of all files and directories
-////	     File filesList[] = directoryPath.listFiles();
-////	      System.out.println("List of files and directories in the specified directory:");
-//	      for(File file : filesList) 
-//	      {
-//	        String path = "C:\\Users\\Admin\\Desktop\\Java_OOP\\BTL_OOP\\data\\data\\" + file.getName();
-//			String line  = "";
-//			try 
-//			{
-//				BufferedReader br = new BufferedReader(new FileReader(path));
-////				System.out.println("Read file successed");
-//				while((line = br.readLine()) != null)
-//				{
-//					String[] values = line.split(",");
-//					StockInfo listLine;
-//					listLine = new StockInfo(values[0], values[2], Double.parseDouble(values[3]), Double.parseDouble(values[1]), Double.parseDouble(values[4]), Double.parseDouble(values[5]), Double.parseDouble(values[6]));
-//					StockInfoList.add(listLine);
-//				}
-//			}catch (FileNotFoundException e) {
-//				e.printStackTrace();
-//			}catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//	      }
+//	
+//	StockInfo getYesterday(StockInfo today)
+//	{
+//		ListIterator<StockInfo> iter;
+//		int iterIdx = 0;
+//		
+//		
+//	 
+//		for (iter  = StockInfoList.listIterator(); iter.hasNext() ;)
+//		{
+//			
+//			if (StockInfoList.get(iterIdx) == today) 
+//				break;
+//			iterIdx = iter.nextIndex();
+//			
+//			iter.next();
+//		}
+//		
+//		return StockInfoList.get(iterIdx + 1);
+//
 //	}
-	public static void main(String args[])
-	{
-		StockInfo st = new StockInfo();
-		String str = new String();
-		try
-		{
-		File FileDir = new File("C:\\Users\\Admin\\Desktop\\Java_OOP\\BTL_OOP\\data\\sentence1.txt");
-		BufferedReader in = new BufferedReader(
-				   new InputStreamReader(
-		                      new FileInputStream(FileDir), "UTF8"));
-		int k;
+//	StockInfo getKDaysBefore(StockInfo today, int k)
+//	{
+//		ListIterator<StockInfo> iter;
+//		int iterIdx = 0;
+//		
+//		for (iter  = StockInfoList.listIterator(); iter.hasNext() ;)
+//		{
+//			
+//			if (StockInfoList.get(iterIdx) == today) 
+//				break;
+//			iterIdx = iter.nextIndex();
+//			
+//			iter.next();
+//		}
+//		if (iterIdx + k < StockInfoList.size())
+//			return StockInfoList.get(iterIdx + k);
+//		else
+//			return null;
+//	}
+
+	
+
+//	public static void main(String args[])
+//	{
+//		StockInfo st = new StockInfo();
+//		String str = new String();
+//		try
+//		{
+//		File FileDir = new File("C:\\Users\\Admin\\Desktop\\Java_OOP\\BTL_OOP\\data\\sentence1.txt");
+//		BufferedReader in = new BufferedReader(
+//				   new InputStreamReader(
+//		                      new FileInputStream(FileDir), "UTF8"));
+//		int k;
 //		while ((str = in.readLine()) != null)
 //		{
 //			k = k+1;
 //		}
 //		for
-		str = in.readLine();
-		
-		ListIterator<StockInfo> iter;
-		String day = "26/03/2020";
-		st.StockInfoList = st.getData();
-		int m = 0;
-		for (iter  = st.StockInfoList.listIterator(); iter.hasNext();)
-		{
-			
-			int iterIdx = iter.nextIndex();
-			if (iterIdx >= st.StockInfoList.size() - 1) 
-				break;
-			StockInfo temp = st.StockInfoList.get(iterIdx);
-//		
+//		str = in.readLine();	
+//		ListIterator<StockInfo> iter;
+//		String day = "26/03/2020";
+//		st.StockInfoList = st.getData();
+//		int m = 0;
+//		for (iter  = st.StockInfoList.listIterator(); iter.hasNext();)
+//		{
 //			
-			StockInfo tempYTD = st.StockInfoList.get(iterIdx + 1);
-			m += 1;
-			if (tempYTD != null && temp.getCodeStock().equals("VNM") && temp.getDate().equals(day))
-			{
-				if (tempYTD.getClosePrice() > temp.getClosePrice())
-				{
-					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is lower than" + " close price of " + temp.CodeStock + " on " + tempYTD.getDate());
-				}
-				if (tempYTD.getClosePrice() < temp.getClosePrice())
-				{
-					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is higher than" + " close price of " + temp.CodeStock + " on " + temp.getDate());
-				}
-				if (tempYTD.getClosePrice() == temp.getClosePrice())
-				{
-					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is equal to " + " close price of " + temp.CodeStock + " on " + temp.getDate());
-				}
-			
-			}
-//		
-			iter.next();
-			
-//			String result = MessageFormat.format(str, temp.Date, temp.CodeStock, temp.OpenPrice, temp.ClosePrice * 1000, temp.HighPrice, temp.LowPrice, Math.round((temp.Volume / 1000000.0) * 100.0) / 100.0
-//														);
-//			System.out.println(result);
+//			int iterIdx = iter.nextIndex();
+//			if (iterIdx >= st.StockInfoList.size() - 1) 
+//				break;
+//			StockInfo temp = st.StockInfoList.get(iterIdx);
+////		
+////			
+//			StockInfo tempYTD = st.StockInfoList.get(iterIdx + 1);
+//			m += 1;
+//			if (tempYTD != null && temp.getCodeStock().equals("VNM") && temp.getDate().equals(day))
+//			{
+//				if (tempYTD.getClosePrice() > temp.getClosePrice())
+//				{
+//					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is lower than" + " close price of " + temp.CodeStock + " on " + tempYTD.getDate());
+//				}
+//				if (tempYTD.getClosePrice() < temp.getClosePrice())
+//				{
+//					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is higher than" + " close price of " + temp.CodeStock + " on " + temp.getDate());
+//				}
+//				if (tempYTD.getClosePrice() == temp.getClosePrice())
+//				{
+//					System.out.println("Close price of " + tempYTD.CodeStock + " on " + tempYTD.getDate() + " is equal to " + " close price of " + temp.CodeStock + " on " + temp.getDate());
+//				}
 //			
-		}
-//		System.out.println(st.StockInfoList.size() + " " + m);
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			System.out.println(e.getMessage());
-		}
-	    catch (IOException e)
-	    {
-			System.out.println(e.getMessage());
-	    }
-	    catch (Exception e)
-	    {
-			System.out.println(e.getMessage());
-	    }
+//			}
+////		
+//			iter.next();
+//			
+////			String result = MessageFormat.format(str, temp.Date, temp.CodeStock, temp.OpenPrice, temp.ClosePrice * 1000, temp.HighPrice, temp.LowPrice, Math.round((temp.Volume / 1000000.0) * 100.0) / 100.0
+////														);
+////			System.out.println(result);			
+//		}
+////		System.out.println(st.StockInfoList.size() + " " + m);
+//		}
+//		catch (UnsupportedEncodingException e)
+//		{
+//			System.out.println(e.getMessage());
+//		}
+//	    catch (IOException e)
+//	    {
+//			System.out.println(e.getMessage());
+//	    }
+//	    catch (Exception e)
+//	    {
+//			System.out.println(e.getMessage());
+//	    }
 //		FileInfo fi = new FileInfo();
 //		st.read();
 //		Iterator<StockInfo> iter;
@@ -190,7 +201,3 @@ public class StockInfo {
 //				System.out.println(result);
 //			}
 //		}
-
-	}
-	
-}

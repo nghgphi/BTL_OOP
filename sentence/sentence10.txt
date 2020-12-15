@@ -1,0 +1,6 @@
+Cụ thể, tổng <khối lượng giao dịch> chứng khoán trong <tháng {5}> trên sàn HOSE đạt {2} tỷ đơn vị, <{0}> {3}% so với tháng {6} và <{1}> {4}% so với tháng {7}
+Tổng <khối lượng giao dịch> trong <tháng {5}>  đạt <{2}> tỉ đơn vị 
+Theo đó, tổng <khối lượng giao dịch> trong tháng qua đạt <{2}> tỉ cổ phiếu, bình quân khối lượng giao dịch đạt {8} triệu CP/phiên,  <{0}> {3}% so với tháng trước.
+Như vậy là <khối lượng giao dịch> trong <tháng {5}> đã <{0}> tới {3}% so với tháng trước đó.
+Tính cả giao dịch thỏa thuận thì <khối lượng giao dịch> trong <tháng {5}> đạt {2} tỉ đơn vị, trong đó ngày <{9}> <{11}> đã chiếm {10} đơn vị
+<Thanh khoản> thị trường tăng khá, với tổng <khối lượng giao dịch> trong <tháng {5}> đạt {2} tỉ cổ phiếu.

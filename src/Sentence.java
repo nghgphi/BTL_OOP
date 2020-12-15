@@ -22,7 +22,7 @@ public class Sentence {
 		try {
 //			st.StockInfoList = st.getData();
 			String dir = System.getProperty("user.dir");
-			File FileDir = new File(dir + "\\data\\" + path + ".txt");
+			File FileDir = new File(dir + "\\sentence\\" + path + ".txt");
 			BufferedReader in1 = new BufferedReader(new InputStreamReader(new FileInputStream(FileDir), "UTF8"));
 
 			List<String> ListSentences = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Sentence {
 	public void saveSentence(String sentence, String path)
 	{
 		String Dir = System.getProperty("user.dir");
-		String FileDir = Dir + "\\data\\" + path + "_output.txt";
+		String FileDir = Dir + "\\sentence\\" + path + "_output.txt";
 		try {
 
 			Files.write(Paths.get(FileDir), (sentence + "\r\n").getBytes(), StandardOpenOption.APPEND);
